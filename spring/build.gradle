@@ -1,0 +1,54 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:2.0.5.RELEASE")
+    }
+}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'com.poc.spring'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+bootJar {
+    baseName = 'spring'
+    version = '0.1.0'
+//    mainClassName = "com.poc.spring.rest.Application"//当项目中有多个启动类时，需要指定使用哪个
+}
+
+bootRun {
+//    main = "com.poc.spring.rest.Application"
+}
+
+repositories {
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    maven{ url 'http://maven.aliyun.com/nexus/content/repositories/jcenter'}
+    mavenCentral()
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-devtools")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.springframework:spring-jdbc")
+    compile("org.springframework.ldap:spring-ldap-core")
+    compile("org.springframework.security:spring-security-ldap")
+    compile("org.springframework:spring-tx")
+    compile("com.unboundid:unboundid-ldapsdk")
+    compile("com.h2database:h2")
+    compile("org.projectlombok:lombok")
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+    testCompile("org.springframework.security:spring-security-test")
+    testCompile group: 'junit', name: 'junit'
+}
