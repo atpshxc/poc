@@ -1,0 +1,69 @@
+server:
+    port: 8080
+#spring:
+#    jpa:
+#        generate-ddl: true
+#        show-sql: true
+#        properties:
+#            hibernate:
+#                dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#                format_sql: true
+#                jdbc:
+#                    batch_size: 5000
+#                    batch_versioned_data: true
+#                    order_inserts: true
+#                    order_updates: true
+#    shardingsphere:
+#        datasource:
+#            names: order0,order1
+#            order0:
+#                type: com.zaxxer.hikari.HikariDataSource
+#                driver-class-name: com.mysql.jdbc.Driver
+#                jdbc-url: jdbc:mysql://192.168.1.6:3306/order?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Asia/Shanghai
+#                username: root
+#                password: root
+#                pool-name: HikariPool-1
+#                minimum-idle: 5
+#                maximum-pool-size: 20
+#                idle-timeout: 600000
+#                max-lifetime: 1800000
+#                connection-timeout: 30000
+#                batch-size: 500
+#            order1:
+#                type: com.zaxxer.hikari.HikariDataSource
+#                driver-class-name: com.mysql.jdbc.Driver
+#                jdbc-url: jdbc:mysql://192.168.1.6:3307/order?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;useSSL=false&amp;useLegacyDatetimeCode=false&amp;serverTimezone=Asia/Shanghai
+#                username: root
+#                password: root
+#                pool-name: HikariPool-2
+#                minimum-idle: 5
+#                maximum-pool-size: 20
+#                idle-timeout: 600000
+#                max-lifetime: 1800000
+#                connection-timeout: 30000
+#                batch-size: 500
+#        sharding:
+#            tables:
+#                t_order:
+#                    database-strategy:
+#                        standard:
+#                            sharding-column: id
+#                            precise-algorithm-class-name: DatabaseSharding
+#                    table-strategy:
+#                        standard:
+#                            sharding-column: order_no
+#                            precise-algorithm-class-name: TableSharding
+#                    actual-data-nodes: order$->{0..1}.t_order$->{0..9}
+#                    key-generator:
+#                        column: id
+#                        type: SNOWFLAKE
+#                        props:
+#                            worker.id: 1
+#                            max.tolerate.time.difference.milliseconds: 100
+#            default-data-source-name: order0
+#    data:
+#        elasticsearch:
+#            cluster-name: elasticsearch
+##            repositories:
+##                enabled: true
+#            cluster-nodes: 192.168.1.200:9300

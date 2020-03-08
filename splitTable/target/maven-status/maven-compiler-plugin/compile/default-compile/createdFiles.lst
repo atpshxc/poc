@@ -1,0 +1,10 @@
+com\haowan\game\job\CustomerJob.class
+com\haowan\game\domain\Customer.class
+com\haowan\game\util\SequenceUtil.class
+com\haowan\game\config\JobConfig.class
+com\haowan\game\job\OrderJob.class
+com\haowan\game\domain\Payment.class
+com\haowan\game\job\PaymentJob.class
+com\haowan\game\App.class
+com\haowan\game\mock\EntityMock.class
+com\haowan\game\domain\Order.class
